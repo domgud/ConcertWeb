@@ -17,8 +17,8 @@ class TicketController extends Controller
 
     public function index()
     {
-        $concerts = Concert::all();
-        return view('tickets.index')->with('concerts', $concerts);
+        $tickets = Ticket::all() -> where('user_id', auth()->user()->id);
+        return view('tickets.index')->with('tickets', $tickets);
     }
 
 
@@ -42,14 +42,11 @@ class TicketController extends Controller
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
+
+    public function destroy(Ticket $ticket)
     {
-        //
+        $ticket->delete();
+
+        return redirect()->route('tickets.index');
     }
 }
