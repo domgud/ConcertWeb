@@ -39,7 +39,6 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //dd(auth()->user()->id);
         Ticket::create([
             'type' => $request->type,
             'user_id' => auth()->user()->id,
@@ -57,6 +56,8 @@ class TicketController extends Controller
     public function show($concertid)
     {
         $concert = Concert::findOrFail($concertid);
+        if($concert->sitting-count($concert->spotssit)<=0&&
+        $concert->standing-count($concert->spotsstand)<=0) return redirect() -> route('tickets.index');
         return view ('tickets.create')->with('concert', $concert);
     }
 

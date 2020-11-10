@@ -3,19 +3,19 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">Users</div>
+                    <div class="card-header">Koncertų tvarkaraštis</div>
 
                     <div class="card-body">
 
                         <table class="table">
                             <thead>
                             <tr>
-                                <th scope="col">Vardas</th>
+                                <th scope="col">Pavadinimas</th>
                                 <th scope="col">Data</th>
-                                <th scope="col">Stovimos vietos</th>
-                                <th scope="col">Sėdimos vietos</th>
+                                <th scope="col">Laisvos sėdimos vietos</th>
+                                <th scope="col">Laisvos stovimos vietos</th>
                                 <th scope="col">Veiksmai</th>
                             </tr>
                             </thead>
@@ -24,10 +24,10 @@
                                 <tr>
                                     <th scope="row">{{$concert->name}}</th>
                                     <td>{{$concert->date}}</td>
-                                    <td>{{$concert->sitting}}</td>
-                                    <td>{{$concert->standing}}</td>
+                                    <td>{{$concert->sitting-count($concert->spotssit)}}</td>
+                                    <td>{{$concert->standing-count($concert->spotsstand)}}</td>
                                     <td>
-                                        <a href="{{route('tickets.show', $concert)}}"> <button type="button" class="btn btn-primary float-left">Redaguoti</button> </a>
+                                        <a href="{{route('tickets.show', $concert)}}"> <button type="button" class="btn btn-primary float-left">Užsakyti</button> </a>
                                     </td>
                                 </tr>
                             @endforeach
