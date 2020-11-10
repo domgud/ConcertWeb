@@ -26,19 +26,19 @@
                                     <td>{{$concert->date}}</td>
                                     <td>{{$concert->sitting-count($concert->spotssit)}}</td>
                                     <td>{{$concert->standing-count($concert->spotsstand)}}</td>
-                                @if($concert->sitting-count($concert->spotssit)<=0&&$concert->standing-count($concert->spotsstand)<=0)
+                                    @if($concert->sitting-count($concert->spotssit)<=0&&$concert->standing-count($concert->spotsstand)<=0)
 
                                         <td style="color:red">
                                             Nebėra vietų
                                         </td>
-                                        @else
+                                    @else
                                         <td>
                                             @can('buy-ticket')
-                                            <a href="{{route('tickets.show', $concert)}}"> <button type="button" class="btn btn-primary float-left">Užsakyti</button> </a>
+                                                <a href="{{route('tickets.show', $concert)}}"> <button type="button" class="btn btn-primary float-left">Užsakyti</button> </a>
                                             @endcan
                                         </td>
-                                        @endif
-                                    </tr>
+                                    @endif
+                                </tr>
 
 
                             @endforeach

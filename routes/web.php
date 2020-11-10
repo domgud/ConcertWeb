@@ -24,4 +24,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UsersController', ['except' =>['show', 'create', 'store']]);
 });
-Route::resource('/tickets', 'TicketController');
+Route::resource('/tickets', 'TicketController', ['except'=>'edit', 'update', 'create']);
+
+Route::resource('/concerts', 'ConcertController');
