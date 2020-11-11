@@ -9,7 +9,7 @@ class Concert extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['sitting'];
+    protected $fillable = ['sitting', 'standing', 'name', 'date'];
     public function spotssit()
     {
         return $this->hasMany('\App\Models\Ticket')->where('type', 'sitting');

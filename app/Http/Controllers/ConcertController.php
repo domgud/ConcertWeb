@@ -27,7 +27,7 @@ class ConcertController extends Controller
      */
     public function create()
     {
-        //
+        return view('concerts.create');
     }
 
     /**
@@ -38,7 +38,13 @@ class ConcertController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Concert::create([
+            'name' => $request->name,
+            'date' => $request->date,
+            'sitting' => $request->sitting,
+            'standing' => $request->standing
+        ]);
+        return redirect() -> route('concerts.index');
     }
 
     /**
