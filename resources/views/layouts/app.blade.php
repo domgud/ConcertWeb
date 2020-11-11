@@ -80,7 +80,10 @@
         </nav>
 
         <main class="py-4">
+            <div class="container">
+            @include('partials.alerts')
             @yield('content')
+            </div>
         </main>
     </div>
 </body>

@@ -9,9 +9,7 @@
                     <div class="card-body">
                         <form action="{{route('tickets.store')}}" method="POST">
                             @csrf
-
-
-                                    <input id="id" type="text" class="form-control" name="id" value="{{$concert->id}}" hidden>
+                            <input id="id" type="text" class="form-control" name="id" value="{{$concert->id}}" hidden>
 
                             <div class="form-group row">
                                 <label for="name" class="col-md-2 col-form-label text-md-right">Pavadinimas</label>

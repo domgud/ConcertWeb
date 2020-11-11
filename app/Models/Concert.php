@@ -18,4 +18,11 @@ class Concert extends Model
     {
         return $this->hasMany('\App\Models\Ticket')->where('type', 'standing');
     }
+    public function freesit(){
+        return ($this->sitting-count($this->spotssit));
+    }
+    public function freestand(){
+        return ($this->standing-count($this->spotsstand));
+
+    }
 }
