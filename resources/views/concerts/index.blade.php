@@ -34,7 +34,7 @@
                                     @else
                                         <td>
                                             @can('buy-ticket')
-                                                <a href="{{route('tickets.show', $concert)}}"> <button type="button" class="btn btn-primary float-left">Užsakyti</button> </a>
+                                                <a href="{{route('concerts.show', $concert)}}"> <button type="button" class="btn btn-primary float-left">Užsakyti</button> </a>
                                             @endcan
                                         </td>
                                     @endif

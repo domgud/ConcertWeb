@@ -33,12 +33,9 @@ class TicketController extends Controller
     }
 
 
-    public function show($concertid)
+    public function show(Ticket $ticket)
     {
-        $concert = Concert::findOrFail($concertid);
-        if($concert->sitting-count($concert->spotssit)<=0&&
-        $concert->standing-count($concert->spotsstand)<=0) return redirect() -> route('tickets.index');
-        return view ('tickets.create')->with('concert', $concert);
+        abort(404);
     }
 
 

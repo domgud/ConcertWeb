@@ -55,7 +55,10 @@ class ConcertController extends Controller
      */
     public function show(Concert $concert)
     {
-        //
+
+        if($concert->sitting-count($concert->spotssit)<=0&&
+            $concert->standing-count($concert->spotsstand)<=0) return redirect() -> route('tickets.index');
+        return view ('tickets.create')->with('concert', $concert);
     }
 
     /**
