@@ -26,7 +26,7 @@
                                     <td>{{$concert->date}}</td>
                                     <td>{{$concert->sitting-count($concert->spotssit)}}</td>
                                     <td>{{$concert->standing-count($concert->spotsstand)}}</td>
-                                    @if($concert->sitting-count($concert->spotssit)<=0&&$concert->standing-count($concert->spotsstand)<=0)
+                                    @if($concert->freesit()<=0&&$concert->freestand()<=0)
 
                                         <td style="color:red">
                                             Nebėra vietų

@@ -23,12 +23,12 @@ class TicketController extends Controller
 
     public function store(Request $request)
     {
-
         $concert = Concert::findorFail($request->id);
-        if(($request->type==='sitting'&&$concert->freesit()>0)||($request->type==='standing'&&$concert->freestand()>0))
+
+        if(($request->type==='1'&&$concert->freesit()>0)||($request->type==='2'&&$concert->freestand()>0))
         {
             Ticket::create([
-                'type' => $request->type,
+                'type_id' => $request->type,
                 'user_id' => auth()->user()->id,
                 'concert_id' => $request->id
             ]);

@@ -20,6 +20,10 @@ class CreateConcertTable extends Migration
             $table-> integer('sitting');
             $table -> integer('standing');
         });
+        Schema::create('types', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+        });
     }
 
     /**
@@ -30,5 +34,6 @@ class CreateConcertTable extends Migration
     public function down()
     {
         Schema::dropIfExists('concerts');
+        Schema::dropIfExists('types');
     }
 }

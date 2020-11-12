@@ -12,11 +12,11 @@ class Concert extends Model
     protected $fillable = ['sitting', 'standing', 'name', 'date'];
     public function spotssit()
     {
-        return $this->hasMany('\App\Models\Ticket')->where('type', 'sitting');
+        return $this->hasMany('\App\Models\Ticket')->where('type_id', '1');
     }
     public function spotsstand()
     {
-        return $this->hasMany('\App\Models\Ticket')->where('type', 'standing');
+        return $this->hasMany('\App\Models\Ticket')->where('type_id', '2');
     }
     public function freesit(){
         return ($this->sitting-count($this->spotssit));

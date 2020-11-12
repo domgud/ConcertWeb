@@ -29,27 +29,27 @@
                                 <label for="sitting" class="col-md-2 col-form-label text-md-right">Laisvų sėdimų vietų:</label>
 
                                 <div class="col-md-6">
-                                    <input id="sitting" type="text" class="form-control" name="sitting" value="{{$concert->sitting-count($concert->spotssit)}}" readonly>
+                                    <input id="sitting" type="text" class="form-control" name="sitting" value="{{$concert->freesit()}}" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="standing" class="col-md-2 col-form-label text-md-right">Laisvų stovimų vietų</label>
 
                                 <div class="col-md-6">
-                                    <input id="standing" type="text" class="form-control" name="standing" value="{{$concert->standing-count($concert->spotsstand)}}" readonly>
+                                    <input id="standing" type="text" class="form-control" name="standing" value="{{$concert->freestand()}}" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="type" class="col-md-2 col-form-label text-md-right">Pasirinkite vietą</label>
 
                                 <select name="type" id="type">
-                                    @if($concert->sitting-count($concert->spotssit)>0)
-                                        <option value="sitting">sitting</option>
+                                    @if($concert->freesit()>0)
+                                        <option value="1">Sėdima</option>  <!-- hardcoded type value :^) -->
                                         @endif
 
 
-                                    @if($concert->standing-count($concert->spotsstand)>0)
-                                            <option value="standing">standing</option>>
+                                    @if($concert->freestand()>0)
+                                            <option value="2">Stovima</option>> <!-- hardcoded type value :^) -->
                                         @endif
                                 </select>
                             </div>

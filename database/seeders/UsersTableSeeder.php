@@ -16,27 +16,25 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $adminRole = Role::where('name', 'admin')->first()->id;
-        $trainerRole = Role::where('name', 'trainer')->first()->id;
-        $userRole = Role::where('name', 'user')->first()->id;
 
-        $admin = User::create([
+
+        User::create([
             'name' => 'Admin User',
             'email' => 'admin@admin.com',
             'password' => Hash::make('password'),
-            'role_id' => $adminRole
+            'role_id' => 1
         ]);
-        $trainer = User::create([
-            'name' => 'Trainer User',
-            'email' => 'trainer@trainer.com',
+        User::create([
+            'name' => 'Director User',
+            'email' => 'director@director.com',
             'password' => Hash::make('password'),
-            'role_id' => $trainerRole
+            'role_id' => 2
         ]);
-        $user = User::create([
+        User::create([
             'name' => 'Generic User',
             'email' => 'user@user.com',
             'password' => Hash::make('password'),
-            'role_id' => $userRole
+            'role_id' => 3
         ]);
     }
 }

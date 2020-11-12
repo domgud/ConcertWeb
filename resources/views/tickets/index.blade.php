@@ -25,7 +25,7 @@
                                     <th scope="row">{{$ticket->id}}</th>
                                     <td>{{$ticket->concert->name}}</td>
                                     <td>{{$ticket->concert->date}}</td>
-                                    <td>{{$ticket->type}}</td>
+                                    <td>{{$ticket->type->name}}</td>
                                     <td>
 
                                         <form action="{{route('tickets.destroy', $ticket)}}" method="POST" class="float-left">
