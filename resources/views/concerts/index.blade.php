@@ -47,7 +47,9 @@
                         @can('create', App\Models\Concert::class)
                         <a href="{{route('concerts.create')}}"> <button type="button" class="btn btn-dark float-right">Pridėti koncertą</button> </a>
                         @endcan
+                        @auth()
                         <a class="float-left" href="{{route('home')}}">Atgal</a>
+                        @endcan
                     </div>
                 </div>
             </div>
