@@ -40,12 +40,24 @@ class ConcertController extends Controller
      */
     public function store(Request $request)
     {
-        Concert::create([
-            'name' => $request->name,
-            'date' => $request->date,
-            'sitting' => $request->sitting,
-            'standing' => $request->standing
-        ]);
+        if($request->validate([
+            'name' => ['required', 'max:255'],
+            'date' => ['required'],
+            'sitting' => ['required', 'numeric', 'min:0'],
+            'standing' => ['required','numeric', 'min:0']
+        ])){
+            Concert::create([
+                'name' => $request->name,
+                'date' => $request->date,
+                'sitting' => $request->sitting,
+                'standing' => $request->standing
+            ]);
+
+        }
+        else{
+            dd($request);
+        }
+
         return redirect() -> route('concerts.index');
     }
 
