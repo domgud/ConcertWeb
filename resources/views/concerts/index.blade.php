@@ -44,8 +44,10 @@
                             @endforeach
                             </tbody>
                         </table>
-                        <a href="{{route('home')}}"> <button type="button" class="btn btn-warning float-left">Atgal</button> </a>
-
+                        @can('create', App\Models\Concert::class)
+                        <a href="{{route('concerts.create')}}"> <button type="button" class="btn btn-dark float-right">Pridėti koncertą</button> </a>
+                        @endcan
+                        <a class="float-left" href="{{route('home')}}">Atgal</a>
                     </div>
                 </div>
             </div>

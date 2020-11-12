@@ -40,9 +40,10 @@
                             </div>
 
 
-                            <button type="submit" class="btn btn-primary">
-                                Registruotis
+                            <button type="submit" class="btn btn-dark float-right">
+                                Pridėti koncertą
                             </button>
+                            <a class="float-left" href="{{route('concerts.index')}}">Atgal</a>
                         </form>
                     </div>
                 </div>

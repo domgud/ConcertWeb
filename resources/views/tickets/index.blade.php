@@ -38,7 +38,7 @@
                             @endforeach
                             </tbody>
                         </table>
-
+                        <a href="{{route('home')}}">Atgal</a>
                     </div>
                 </div>
             </div>

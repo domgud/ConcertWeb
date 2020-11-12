@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Concert;
-use App\Models\Ticket;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class ConcertController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Concert::class, 'concert');
+    }
     /**
      * Display a listing of the resource.
      *

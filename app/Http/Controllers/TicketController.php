@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Concert;
 use App\Models\Ticket;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller

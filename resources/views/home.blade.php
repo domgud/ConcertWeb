@@ -13,7 +13,11 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                        <a href="{{route('concerts.index')}}">Koncertų tvarkaraštis</a>
+                        <br>
+                        @can('buy-ticket')
+                        <a href="{{route('tickets.index')}}">Mano bilietai</a>
+                        @endcan
                 </div>
             </div>
         </div>
