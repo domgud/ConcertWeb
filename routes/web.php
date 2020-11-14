@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ConcertController;
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,4 +28,5 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 });
 Route::resource('/tickets', 'TicketController', ['except'=>['edit', 'update', 'create', 'show']]);
 
+Route::get('/concerts/stats', [ConcertController::class, 'viewStats'])->middleware('can:see-stats')->name('concerts.viewStats');
 Route::resource('/concerts', 'ConcertController');

@@ -13,7 +13,11 @@
                         </div>
                     @endif
 
+                        @can('viewAny', \App\Models\Concert::class)
                         <a href="{{route('concerts.index')}}">Koncertų tvarkaraštis</a>
+                        @elsecan('see-stats')
+                            <a href="{{route('concerts.viewStats')}}">Koncertų statistika</a>
+                        @endcan
                         <br>
                         @can('buy-ticket')
                         <a href="{{route('tickets.index')}}">Mano bilietai</a>

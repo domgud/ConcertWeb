@@ -108,4 +108,10 @@ class ConcertController extends Controller
     {
         //
     }
+
+    public function viewStats()
+    {
+        $concerts = Concert::all();
+        return view('concerts.stats')->with('concerts', $concerts);
+    }
 }
