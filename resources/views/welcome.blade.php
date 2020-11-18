@@ -25,12 +25,12 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Pagrindinis</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Prisijungti</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Registruotis</a>
                         @endif
                     @endif
                 </div>
@@ -41,6 +41,7 @@
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
                     <a href="{{route('concerts.index')}}" style="color:red;font-size: 120px">KONCERTAI</a>
                 </div>
+                <center style="color:red">DARBĄ ATLIKO DOMANTAS GUDONIS IFF-8/13</center>
             </div>
         </div>
     </body>
