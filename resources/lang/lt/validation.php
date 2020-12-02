@@ -141,7 +141,7 @@ return [
     |
     */
     'attributes'           => [
-        'name' => 'vardas',
+        'name' => 'pavadinimas',
         'date' => 'data',
         'sitting' => 'sėdimos vietos',
         'standing' => 'stovimos vietos'

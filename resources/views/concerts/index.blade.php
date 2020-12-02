@@ -1,58 +1,44 @@
 @extends('layouts.app')
 
 @section('content')
+    @can('create', App\Models\Concert::class)
+        <a href="{{route('concerts.create')}}"> <button type="button" class="btn btn-dark float-right">Pridėti koncertą</button> </a>
+    @endcan
+    @auth()
+        <a class="float-left" href="{{route('home')}}">Atgal</a>
+    @endcan
+    <br>
+    <br>
+    <br>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <div class="card">
-                    <div class="card-header">Koncertų tvarkaraštis</div>
 
-                    <div class="card-body">
+        <div class="d-flex flex-wrap">
+            @foreach ( $concerts as $data)
+            <div class="col-sm-4" style="margin-bottom: 10px">
+                    <div class="card  bg-transparent" style = "width: 100%; " >
 
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">Pavadinimas</th>
-                                <th scope="col">Data</th>
-                                <th scope="col">Laisvos sėdimos vietos</th>
-                                <th scope="col">Laisvos stovimos vietos</th>
-                                <th scope="col"></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($concerts as $concert)
-                                <tr>
-                                    <th scope="row">{{$concert->name}}</th>
-                                    <td>{{$concert->date}}</td>
-                                    <td>{{$concert->freesit()}}</td>
-                                    <td>{{$concert->freestand()}}</td>
-                                    @if($concert->freesit()<=0&&$concert->freestand()<=0)
+                        <div class="card-body">
+                            <h5 class="card-title"><b>{{$data->name}}</b></h5>
+                            <p class="card-text"><b>{{$data->date}}</b></p>
+                            <p class="card-text">Sėdimos: {{ $data->freesit()}}</p>
+                            <p class="card-text">Stovimos: {{ $data->freestand()}}</p>
+                            @if($data->freesit()<=0&&$data->freestand()<=0)
 
-                                        <td style="color:red">
-                                            Nebėra vietų
-                                        </td>
-                                    @else
-                                        <td>
-                                            @can('buy-ticket')
-                                                <a href="{{route('concerts.show', $concert)}}"> <button type="button" class="btn btn-primary float-left">Užsakyti</button> </a>
-                                            @endcan
-                                        </td>
-                                    @endif
-                                </tr>
-
-
-                            @endforeach
-                            </tbody>
-                        </table>
-                        @can('create', App\Models\Concert::class)
-                        <a href="{{route('concerts.create')}}"> <button type="button" class="btn btn-dark float-right">Pridėti koncertą</button> </a>
-                        @endcan
-                        @auth()
-                        <a class="float-left" href="{{route('home')}}">Atgal</a>
-                        @endcan
+                                <p style="color:red">
+                                    Nebėra vietų
+                                </p>
+                            @else
+                                <td>
+                                    @can('buy-ticket')
+                                        <a href="{{route('concerts.show', $data)}}"> <button type="button" class="btn btn-primary float-left">Užsakyti</button> </a>
+                                    @endcan
+                                </td>
+                            @endif
+                        </div>
                     </div>
-                </div>
             </div>
+            @endforeach
         </div>
     </div>
+
 @endsection
