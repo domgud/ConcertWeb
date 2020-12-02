@@ -14,9 +14,9 @@
 
         <div class="d-flex flex-wrap">
             @foreach ( $concerts as $data)
-            <div class="col-sm-4" style="margin-bottom: 10px">
+            <div class="col-sm-4 d-flex" style="margin-bottom: 10px">
                     <div class="card  bg-transparent" style = "width: 100%; " >
-
+                        <img class="card-img-top" src="img/fancy.jpg" alt="Fancy">
                         <div class="card-body">
                             <h5 class="card-title"><b>{{$data->name}}</b></h5>
                             <p class="card-text"><b>{{$data->date}}</b></p>
