@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Concert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ConcertController extends Controller
 {
@@ -18,6 +19,9 @@ class ConcertController extends Controller
      */
     public function index()
     {
+
+        if(Auth::user()!= null)
+        if(Auth::user()->hasRole('director')) return redirect()->route('concerts.viewStats');
         $concerts = Concert::all();
         return view('concerts.index')->with('concerts', $concerts);
     }

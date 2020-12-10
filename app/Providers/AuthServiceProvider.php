@@ -35,5 +35,8 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('see-stats', function ($user) {
             return $user-> hasRole('director');
         });
+        Gate::define('see-table', function ($user) {
+            return !$user-> hasRole('director');
+        });
     }
 }

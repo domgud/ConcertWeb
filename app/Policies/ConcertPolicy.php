@@ -19,13 +19,7 @@ class ConcertPolicy
     public function viewAny(?User $user)
     {
 
-        //not logged in users and everyone except director
-        if($user==null) {
-            return true;
-        }
-        else{
-            return !$user->hasRole('director');
-        }
+        return true;
     }
 
     /**
