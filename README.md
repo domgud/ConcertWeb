@@ -47,7 +47,7 @@ You can now access the server at http://localhost:8000
 **TL;DR command list**
 
     git clone https://github.com/domgud/ConcertWeb.git
-    cd cd ConcertWeb
+    cd ConcertWeb
     composer install
     cp .env.example .env
     php artisan key:generate
